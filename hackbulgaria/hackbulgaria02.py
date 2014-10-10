@@ -74,12 +74,18 @@ def reduce_file_path(path):
 
 #Word from a^nb^n
 def is_an_bn(word):
-	my_word = word
-	my_reversed_word = word[::-1].replace('a','b')
+	myword = list(word)
+	if len(myword) % 2 != 0:
+		return False
+	else:
+		middle = len(myword) / 2
+		i = 0
+		while i < middle:
+			if myword[i] != 'a' or myword[len(myword)-i-1] !='b':
+				return False
 
-	print (my_word)
-	print (my_reversed_word)
+			i = i + 1
+		return True
 
-	return "hello"
 
-print(is_an_bn("aaabbb"))
+print(is_an_bn("aabbaabb"))

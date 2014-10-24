@@ -1,17 +1,10 @@
-from entity import Entity
-
-class Hero(Entity):
-	def __init__(self, name, health, nickname):
-		super().__init__(name, health)
-
-	def __init__(self, name, health, nickname):
+class Entity:
+	def __init__(self, name, health):
 		self.name = name
 		self.health = health
-		self.nickname = nickname
-		self.MAX_HEALTH = 100
 
-	def known_as(self):
-		return "{} the {}".format(self.name, self.nickname)
+		self.MAX_HEALTH = 100
+		self.weapon = None
 
 	def get_health(self):
 		return self.health
@@ -39,3 +32,12 @@ class Hero(Entity):
 			else:
 				self.health = health
 			return True
+
+	def has_weapon(self):
+		if self.weapon != None:
+			return True
+		else:
+			return False
+
+	def equip_weapon(self, weapon):
+		self.weapon = weapon

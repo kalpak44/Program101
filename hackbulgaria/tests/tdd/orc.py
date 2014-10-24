@@ -1,4 +1,9 @@
-class Orc:
+from entity import Entity
+
+class Orc(Entity):
+	def __init__(self, name, health, nickname):
+		super().__init__(name, health)
+
 	def __init__(self, name, health, berserk_factor):
 		self.name = name
 		self.health = health

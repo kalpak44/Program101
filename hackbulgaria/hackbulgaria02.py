@@ -1,3 +1,6 @@
+from datetime import datetime
+import time
+
 #Count words
 array = ["apple", "banana", "apple", "pie"]
 
@@ -116,4 +119,16 @@ def simplify_fraction(fraction):
     return Fraction(fraction.numerator / mcd,fraction.denumerator / mcd)
 
 f = Fraction(3,9)
-print (simplify_fraction(f))
+#print (simplify_fraction(f))
+
+
+def test():
+    # time tuple to string
+    t = 88
+
+    m = 0
+    s = 0
+    print(t//60)
+    print(t%60)
+
+test()

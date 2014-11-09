@@ -9,6 +9,12 @@ class Playlist():
 		self.name = name
 		self.playlist = []
 
+	def __getitem__(self, index):
+		return self.playlist[index]
+
+	def change_playlist_name(self, name):
+		self.name = name
+
 	def add_song(self, song):
 		self.playlist.append(song)
 
@@ -43,18 +49,12 @@ class Playlist():
 		artists = list(set(artists))
 		return artists
 
-	def str(self):
-		songs = ""
-		for song in self.playlist:
-			song_str =  "{} {} - {}:{}\n".format(song.artist, song.title, song.length // 60, song.length % 60)
-			songs = songs + song_str
-		return  songs
-
-
 	def save(self, filename):
-		with open(filename+".json", "w") as outfile:
-			json.dump(['playlist_name',{'albumname': {'song_name': 5}}], outfile)
+		songs = [{key: song.__dict__[key] for key in song.__dict__}
+		for song in self.songs]
 
+        data = {'name': self.name, 'songs': songs}
+        
 
 
 def main():

@@ -20,6 +20,7 @@ def create_clients_table():
     cursor.execute(create_query)
 
 
+
 def change_message(new_message, logged_user):
     cursor.execute('''UPDATE clients SET message = ? WHERE id = ?''',(new_message, logged_user.get_id()))
     conn.commit()
